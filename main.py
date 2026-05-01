@@ -2,7 +2,6 @@
 main.py — Chạy toàn bộ pipeline dự đoán Revenue & COGS
 Usage:
     python main.py
-    python main.py --output my_submission.csv
     python main.py --no-plot --no-shap
 """
 
@@ -17,19 +16,13 @@ def parse_args():
         epilog="""
 Examples:
   python main.py
-  python main.py --output results/submission_v2.csv
   python main.py --no-plot --no-shap
         """
     )
-    parser.add_argument('--output',   type=str, default=None,
-                        help='Đường dẫn file output (mặc định: theo config)')
     parser.add_argument('--no-plot',  action='store_true',
                         help='Bỏ qua bước vẽ biểu đồ forecast')
     parser.add_argument('--no-shap',  action='store_true',
                         help='Bỏ qua bước SHAP / feature importance')
-    parser.add_argument('--model',    type=str, default='xgboost',
-                        choices=['xgboost', 'lightgbm', 'both'],
-                        help='Model sử dụng để retrain & predict (default: xgboost)')
     return parser.parse_args()
 
 
