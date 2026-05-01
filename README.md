@@ -26,6 +26,7 @@ project/
 │   ├── fe.py                       (Features engineering)
 │   └── train.py                    (Pipeline mô hình)
 |
+├── report/                         (Báo cáo)
 ├── main.py                         (python script)                          
 ├── README.md                 
 └── requirements.txt              

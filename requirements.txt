@@ -1,8 +1,10 @@
 numpy
 pandas
-seaborn
+scipy
 matplotlib
+seaborn
 scikit-learn
+statsmodels
 xgboost
 lightgbm
 lunardate
