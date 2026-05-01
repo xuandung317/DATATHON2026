@@ -27,7 +27,7 @@ project/
 │   └── train.py                        (Pipeline mô hình)
 |
 ├── report/                             (Báo cáo)
-│   ├── _DATATHON_2026__INSIGHTX4.pdf            
+│   └── _DATATHON_2026__INSIGHTX4.pdf            
 |
 ├── main.py                             (python script)                          
 ├── README.md                 
