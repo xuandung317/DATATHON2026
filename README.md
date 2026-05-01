@@ -27,6 +27,7 @@ project/
 │   └── train.py                    (Pipeline mô hình)
 |
 ├── report/                         (Báo cáo)
+|
 ├── main.py                         (python script)                          
 ├── README.md                 
 └── requirements.txt              
