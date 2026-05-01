@@ -15,10 +15,19 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 # ─── Đường dẫn dữ liệu ──────────────────────────────────────
 DATA_PATHS = {
-    'sales':      DATA_DIR / 'sales.csv',
-    'promotions': DATA_DIR / 'promotions.csv',
-    'web':        DATA_DIR / 'web_traffic.csv',
+    'products':   DATA_DIR / 'products.csv',
+    'customers':  DATA_DIR / 'customers.csv',
+    'geography':  DATA_DIR / 'geography.csv',
     'orders':     DATA_DIR / 'orders.csv',
+    'order_items':DATA_DIR / 'order_items.csv',
+    'promotions': DATA_DIR / 'promotions.csv',
+    'payments':   DATA_DIR / 'payments.csv',
+    'reviews':    DATA_DIR / 'reviews.csv',
+    'sales':      DATA_DIR / 'sales.csv',
+    'inventory':  DATA_DIR / 'inventory.csv',
+    'shipments':  DATA_DIR / 'shipments.csv',
+    'returns':    DATA_DIR / 'returns.csv',
+    'web':        DATA_DIR / 'web_traffic.csv',
 }
 
 OUT_PATH = OUTPUT_DIR / 'submission.csv' 
