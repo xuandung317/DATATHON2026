@@ -7,5 +7,7 @@ scikit-learn
 statsmodels
 xgboost
 lightgbm
+scipy 
+statsmodels
 lunardate
 shap
