@@ -97,7 +97,7 @@ def main():
                         train_df['Date'], tscv, 'COGS')
 
     # =============== Retrain + Predict ===============
-    print(f'\nRetrain & Predict (model={args.model})...')
+    print(f'\nRetrain & Predict...')
 
     pred_rev_model, pred_cogs_model = xgb_rev, xgb_cogs
 
