@@ -42,5 +42,6 @@ _**Chạy file main.py**_
 Chạy lệnh sau trên **terminal**:
 ```
 python main.py
+python main.py --no-plot --no-shap
 ```
 _**Chạy file EDA.ipynb để khám phá dữ liệu và file main.ipynb để xem quá trình huấn luyện mô hình**_
