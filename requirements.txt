@@ -5,5 +5,7 @@ matplotlib
 scikit-learn
 xgboost
 lightgbm
+scipy 
+statsmodels
 lunardate
 shap
