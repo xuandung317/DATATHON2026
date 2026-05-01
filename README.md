@@ -12,23 +12,24 @@ Bộ dữ liệu mô phỏng hoạt động của một doanh nghiệp thời tr
 ## 3. Cấu trúc 
 ```
 project/
-├── data/                           (Dữ liệu đầu vào)                
+├── data/                               (Dữ liệu đầu vào)                
 |
 ├── outputs/
-|   └── submission.csv              (File csv dự đoán) 
+|   └── submission.csv                  (File csv dự đoán) 
 |
 ├── notebook/
-|   ├── EDA.ipynb                   (Notebook EDA)
-│   └── main.ipynb                  (Notebook chính)
+|   ├── EDA.ipynb                       (Notebook EDA)
+│   └── main.ipynb                      (Notebook chính)
 |
 ├── src/
-│   ├── config.py                   (Cấu hình)
-│   ├── fe.py                       (Features engineering)
-│   └── train.py                    (Pipeline mô hình)
+│   ├── config.py                       (Cấu hình)
+│   ├── fe.py                           (Features engineering)
+│   └── train.py                        (Pipeline mô hình)
 |
-├── report/                         (Báo cáo)
+├── report/                             (Báo cáo)
+│   ├── _DATATHON_2026__INSIGHTX4.pdf            
 |
-├── main.py                         (python script)                          
+├── main.py                             (python script)                          
 ├── README.md                 
 └── requirements.txt              
 ```                  
