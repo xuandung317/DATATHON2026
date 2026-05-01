@@ -86,7 +86,7 @@ def check_nan_after_fix(X_train, X_test):
 
     print('NaN > 5% sau khi fix:')
     if len(remaining) == 0:
-        print('Chỉ còn lag Revenue/COGS đầu chuỗi — LightGBM tự xử lý')
+        print('Chỉ còn lag Revenue/COGS đầu chuỗi — Moddel tự xử lý')
     else:
         print(remaining)
 
@@ -97,8 +97,6 @@ def check_nan_after_fix(X_train, X_test):
     ]
 
     nan_rev = X_train[rev_lag_cols].isna().mean().mean()
-
-    print(f'\n  Revenue/COGS/Orders lags NaN: {nan_rev:.1%} (do train bắt đầu 2012, lag 728d)')
   
 
 # ════════════════════════════════════════════════════════════
@@ -107,9 +105,9 @@ def check_nan_after_fix(X_train, X_test):
 def get_sample_weights(dates):
     w = np.ones(len(dates))
 
-    # COVID down-weight
-    covid_mask = ((dates >= '2020-03-01') & (dates <= '2021-06-30')).values
-    w[covid_mask] = 0.4
+    # Structural decline — khớp với make_structural_period_features
+    structural_decline_mask = ((dates >= '2019-01-01') & (dates <= '2021-12-31')).values
+    w[structural_decline_mask] = 0.4    # rev thấp hơn baseline ~30%
 
     # Recency weight
     days_to_end    = (dates.max() - dates).dt.days
@@ -181,10 +179,6 @@ def retrain_and_predict(model_rev, model_cogs, X_train, y_train_rev,
     print(f'\nSanity check (30d đầu prediction vs 60d cuối train):')
     print(f'  Revenue: train={last_rev:,.0f} | pred={pred_rev:,.0f} (ratio={pred_rev/last_rev:.2f})')
     print(f'  COGS   : train={last_cogs:,.0f} | pred={pred_cogs:,.0f} (ratio={pred_cogs/last_cogs:.2f})')
-    if not (0.3 < pred_rev / last_rev < 3.0):
-        print('CẢNH BÁO: Prediction lệch quá xa — kiểm tra lại features!')
-    else:
-        print('Prediction trong tầm hợp lý ✓')
 
     return revenue_pred, cogs_pred
 
@@ -266,7 +260,7 @@ def explain_model(model_rev, X_train):
     fig1.savefig(f'{OUTPUTS_DIR}/_shap_bar.png', bbox_inches='tight', dpi=200)
     fig2.savefig(f'{OUTPUTS_DIR}/_shap_beeswarm.png', bbox_inches='tight', dpi=200)
 
-    # ---- Combine bằng matplotlib ----
+    # ---- Combine ----
     img1 = mpimg.imread(f'{OUTPUTS_DIR}/_shap_bar.png')
     img2 = mpimg.imread(f'{OUTPUTS_DIR}/_shap_beeswarm.png')
 
@@ -315,4 +309,4 @@ def save_submission(test_df, revenue_pred, cogs_pred):
     print(f'Negative COGS  : {(submission.COGS < 0).sum()}')
 
     submission.to_csv(OUT_PATH, index=False)
-    print(f'\nSaved: {OUT_PATH}')
+    print('\nSaved: submission.csv')
